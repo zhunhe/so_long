@@ -4,3 +4,4 @@
 a.out
 *.o
 so_long
+*.a
