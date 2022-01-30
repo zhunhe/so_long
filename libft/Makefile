@@ -16,7 +16,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = \
-	ft_strlen.c
+	ft_strlen.c \
+	ft_strchr.c \
+	ft_strcmp.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -31,6 +33,6 @@ fclean: clean
 re: fclean all
 
 $(NAME): $(OBJS)
-	ar rcs $@ $<
+	ar rcs $@ $^
 
 .PHONY : all, clean, fclean, re

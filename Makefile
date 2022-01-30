@@ -20,6 +20,8 @@ INC_DIR = ./include
 
 SRCS = $(addprefix $(SRC_DIR)/, \
 	main.c \
+	so_long.c	\
+	check_error.c	\
 )
 
 OBJS = $(SRCS:.c=.o)

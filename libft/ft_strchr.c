@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 11:21:56 by juhur             #+#    #+#             */
-/*   Updated: 2022/01/30 14:28:11 by juhur            ###   ########.fr       */
+/*   Created: 2022/01/30 16:13:45 by juhur             #+#    #+#             */
+/*   Updated: 2022/01/30 16:13:46 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
+/*
+** strchr -- locate character in string <string.h>
+*/
 
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-int		ft_strcmp(const char *s1, const char *s2);
-#endif
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		++s;
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
+}

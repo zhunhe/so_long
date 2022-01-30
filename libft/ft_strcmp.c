@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 11:21:56 by juhur             #+#    #+#             */
-/*   Updated: 2022/01/30 14:28:11 by juhur            ###   ########.fr       */
+/*   Created: 2022/01/30 16:17:47 by juhur             #+#    #+#             */
+/*   Updated: 2022/01/30 16:17:48 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-int		ft_strcmp(const char *s1, const char *s2);
-#endif
+/*
+** strcmp -- compare strings <string.h>
+*/
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 == *s2++)
+		if (*s1++ == '\0')
+			return (0);
+	return (*(const unsigned char *)s1 - *(const unsigned char *)(s2 - 1));
+}

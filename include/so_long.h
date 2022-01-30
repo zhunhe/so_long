@@ -13,4 +13,22 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+enum e_error
+{
+	ok = 0,
+	error_extension,
+	error_max
+};
+
+# define ERROR_EXTENSION	"Error! file extension is not .ber"
+
+/*
+** so_long.c
+*/
+int		so_long(char *file_name);
+/*
+** check_error.c
+*/
+int		check_error(char *file_name);
+
 #endif

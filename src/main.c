@@ -11,14 +11,24 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "so_long.h"
 #include "libft.h"
+
+static void	print_errormsg(int errno)
+{
+	if (errno == error_extension)
+		write(2, ERROR_EXTENSION, ft_strlen(ERROR_EXTENSION));
+}
 
 int	main(int argc, char **argv)
 {
+	int		errno;
+
 	if (argc == 2)
 	{
-		// for make test
-		write(1, argv[1], ft_strlen(argv[1]));
+		errno = so_long(argv[1]);
+		if (errno)
+			print_errormsg(errno);
 	}
 	return (0);
 }

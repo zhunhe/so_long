@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   error_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 11:21:56 by juhur             #+#    #+#             */
-/*   Updated: 2022/01/30 14:28:11 by juhur            ###   ########.fr       */
+/*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
+/*   Updated: 2022/01/30 16:49:48 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "so_long.h"
+#include "libft.h"
 
-# include <stddef.h>
+static int	check_extension(char *file_name)
+{
+	char	*extension;
 
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-int		ft_strcmp(const char *s1, const char *s2);
-#endif
+	extension = ft_strchr(file_name, '.');
+	if (extension == NULL)
+		return (error_extension);
+	if (ft_strcmp(extension, ".ber") != 0)
+		return (error_extension);
+	return (ok);
+}
+
+int	check_error(char *file_name)
+{
+	int	errno;
+
+	errno = check_extension(file_name);
+	return (errno);
+}
