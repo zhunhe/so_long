@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/01/29 20:29:46 by juhur            ###   ########.fr        #
+#    Updated: 2022/01/30 13:15:42 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,24 +15,39 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = \
-	main.c
+SRC_DIR = ./src
+INC_DIR = ./include
+
+SRCS = $(addprefix $(SRC_DIR)/, \
+	main.c \
+)
 
 OBJS = $(SRCS:.c=.o)
 
-.PHONY: all
+LIBFT_DIR = ./libft
+LIBFT_AR = $(LIBFT_DIR)/libft.a
+
+.PHONY : all
 all: $(NAME)
 
-.PHONY: clean
+.PHONY : clean
 clean:
+	make -C $(LIBFT_DIR) clean
 	rm -rf $(OBJS)
 
-.PHONY: fclean
+.PHONY : fclean
 fclean:	clean
+	rm -rf $(LIBFT_AR)
 	rm -rf $(NAME)
 
-.PHONY: re
+.PHONY : re
 re: fclean all
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+$(LIBFT_AR) :
+	make -C $(LIBFT_DIR)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -I $(INC_DIR) -c $< -o $@
+
+$(NAME) : $(LIBFT_AR) $(OBJS)
+	$(CC) $(CFLAGS) $^ -I $(LIBFT_DIR) -I $(INC_DIR) -o $@
