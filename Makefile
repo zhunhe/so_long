@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/01/30 13:15:42 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/03 14:27:53 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,4 +52,4 @@ $(LIBFT_AR) :
 	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -I $(INC_DIR) -c $< -o $@
 
 $(NAME) : $(LIBFT_AR) $(OBJS)
-	$(CC) $(CFLAGS) $^ -I $(LIBFT_DIR) -I $(INC_DIR) -o $@
+	$(CC) $(CFLAGS) $^ -I $(INC_DIR) -o $@
