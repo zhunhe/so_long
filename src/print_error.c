@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/03 19:54:27 by juhur            ###   ########.fr       */
+/*   Created: 2022/02/03 18:02:31 by juhur             #+#    #+#             */
+/*   Updated: 2022/02/03 19:55:33 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include "libft.h"
 
-void	so_long(char *file_name)
+void print_error_and_exit(char *s)
 {
-	check_error(file_name);
+	write(1, s, ft_strlen(s));
+	exit(2);
 }

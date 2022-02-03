@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/02/03 14:27:53 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/03 19:54:04 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = $(addprefix $(SRC_DIR)/, \
 	main.c \
 	so_long.c	\
 	check_error.c	\
+	print_error.c	\
 )
 
 OBJS = $(SRCS:.c=.o)
