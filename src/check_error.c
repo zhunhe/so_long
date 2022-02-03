@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_check.c                                      :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/01/30 16:49:48 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/03 15:41:22 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 static int	check_extension(char *file_name)
 {
-	char	*extension;
+	size_t	len;
 
-	extension = ft_strchr(file_name, '.');
-	if (extension == NULL)
+	len = ft_strlen(file_name);
+	if (len < 5)
 		return (error_extension);
-	if (ft_strcmp(extension, ".ber") != 0)
+	if (ft_strcmp(file_name + len - 4, ".ber") != 0)
 		return (error_extension);
 	return (ok);
 }
