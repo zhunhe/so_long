@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 14:42:21 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 15:31:08 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,30 @@ static void	set_string(t_so_long *sl)
 
 static void	set_board_height_width(t_so_long *sl)
 {
-	size_t	idx;
+	int	idx;
+	int	len;
 
 	idx = 0;
 	while (sl->s[idx] != '\0')
-		if (sl->s[idx++] == '\n')
-			sl->height++;
-	sl->width = 0;
-	while (sl->s[sl->width] != '\0')
 	{
-		if (sl->s[sl->width] == '\n')
-			break ;
-		sl->width++;
+		if (idx == 0 || sl->s[idx - 1] == '\n')
+			sl->height++;
+		idx++;
+	}
+	idx = 0;
+	while (sl->s[idx] != '\0')
+	{
+		len = 0;
+		while (sl->s[idx] != '\0' && sl->s[idx] != '\n')
+		{
+			idx++;
+			len++;
+		}
+		idx++;
+		if (sl->width == 0)
+			sl->width = len;
+		else if (sl->width != len)
+			print_error_and_exit(sl, ERROR_RECTANGLE);
 	}
 }
 

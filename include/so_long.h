@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 14:47:51 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 15:25:48 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_so_long
 # define ERROR_MAP_SIZE		"Error! invalid map size"
 # define ERROR_MALLOC		"Error! insufficient memory"
 # define ERROR_WALL			"Error! outside board is not wall"
+# define ERROR_RECTANGLE	"Error! board is not rectangle"
 
 /*
 ** so_long.c
