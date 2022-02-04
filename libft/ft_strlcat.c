@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/03 21:18:08 by juhur            ###   ########.fr       */
+/*   Created: 2022/02/03 21:15:15 by juhur             #+#    #+#             */
+/*   Updated: 2022/02/04 13:15:12 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
 #include "libft.h"
 
-static void	check_extension(t_so_long sl)
+/*
+** strlcat -- size-bounded string copying and concatenation <string.h>
+*/
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	len;
+	size_t	dst_len;
 
-	len = ft_strlen(sl.file_name);
-	if (len < 5)
-		print_error_and_exit(NULL, ERROR_EXTENSION);
-	if (ft_strcmp(sl.file_name + len - 4, ".ber") != 0)
-		print_error_and_exit(NULL, ERROR_EXTENSION);
-}
-
-void	check_error(t_so_long sl)
-{
-	check_extension(sl);
+	dst_len = ft_strlen(dst);
+	if (dst_len >= dstsize)
+		return (ft_strlen(src) + dstsize);
+	while (dst_len < dstsize - 1 && *src != '\0')
+		dst[dst_len++] = *(src++);
+	dst[dst_len] = '\0';
+	return (dst_len);
 }
