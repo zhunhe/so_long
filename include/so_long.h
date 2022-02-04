@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 13:26:51 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 14:47:51 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@ typedef struct s_so_long
 	int		width;
 }	t_so_long;
 
+# define EMPTY			'0'
+# define WALL			'1'
+# define COLLECTIBLE	'C'
+# define EXIT			'E'
+# define PLAYER			'P'
+
 # define ERROR_EXTENSION	"Error! file extension is not .ber"
 # define ERROR_FD			"Error! invalid file descriptor"
 # define ERROR_MAP_SIZE		"Error! invalid map size"
 # define ERROR_MALLOC		"Error! insufficient memory"
+# define ERROR_WALL			"Error! outside board is not wall"
 
 /*
 ** so_long.c
@@ -36,6 +43,7 @@ void	free_struct(t_so_long *sl);
 ** check_error.c
 */
 void	check_extension(t_so_long sl);
+void	check_wall(t_so_long *sl);
 /*
 ** print_error.c
 */
