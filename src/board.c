@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 13:18:13 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 14:01:27 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,13 @@ static void	set_board_main(t_so_long *sl)
 	}
 }
 
+#include <stdio.h>
 void	set_board(t_so_long *sl)
 {
 	int		size;
 
 	size = get_file_size(sl->file_name);
-	if (size <= 12)
+	if (size < 14)
 		print_error_and_exit(sl, ERROR_MAP_SIZE);
 	sl->s = (char *)malloc(sizeof(char) * (size + 1));
 	if (sl->s == NULL)
