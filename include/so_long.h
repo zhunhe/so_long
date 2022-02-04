@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 15:25:48 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 15:56:37 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_so_long
 # define ERROR_MALLOC		"Error! insufficient memory"
 # define ERROR_WALL			"Error! outside board is not wall"
 # define ERROR_RECTANGLE	"Error! board is not rectangle"
+# define ERROR_INVALID_CHAR	"Error! there is invalid character in board"
 
 /*
 ** so_long.c
@@ -45,6 +46,7 @@ void	free_struct(t_so_long *sl);
 */
 void	check_extension(t_so_long sl);
 void	check_wall(t_so_long *sl);
+void	check_invalid_char(t_so_long *sl);
 /*
 ** print_error.c
 */

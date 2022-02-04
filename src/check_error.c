@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 15:02:10 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 15:59:42 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,31 @@ void	check_wall(t_so_long *sl)
 			if (i == 0 || i == sl->height - 1 || j == 0 || j == sl->width - 1)
 				if (sl->board[i][j] != WALL)
 					print_error_and_exit(sl, ERROR_WALL);
+	}
+}
+
+void	check_invalid_char(t_so_long *sl)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < sl->height)
+	{
+		j = -1;
+		while (++j < sl->width)
+		{
+			if (sl->board[i][j] == EMPTY)
+				continue ;
+			if (sl->board[i][j] == WALL)
+				continue ;
+			if (sl->board[i][j] == COLLECTIBLE)
+				continue ;
+			if (sl->board[i][j] == EXIT)
+				continue ;
+			if (sl->board[i][j] == PLAYER)
+				continue ;
+			print_error_and_exit(sl, ERROR_INVALID_CHAR);
+		}
 	}
 }
