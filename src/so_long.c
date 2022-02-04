@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 13:22:07 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 13:27:07 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	so_long(char *file_name)
 	t_so_long	sl;
 
 	init_struct(&sl, file_name);
-	check_error(sl);
+	check_extension(sl);
 	set_board(&sl);
 }
 

@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/03 21:32:52 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 13:26:51 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	free_struct(t_so_long *sl);
 /*
 ** check_error.c
 */
-void	check_error(t_so_long sl);
+void	check_extension(t_so_long sl);
 /*
 ** print_error.c
 */

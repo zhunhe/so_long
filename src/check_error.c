@@ -6,14 +6,14 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/03 21:18:08 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 13:26:42 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "libft.h"
 
-static void	check_extension(t_so_long sl)
+void	check_extension(t_so_long sl)
 {
 	size_t	len;
 
@@ -22,9 +22,4 @@ static void	check_extension(t_so_long sl)
 		print_error_and_exit(NULL, ERROR_EXTENSION);
 	if (ft_strcmp(sl.file_name + len - 4, ".ber") != 0)
 		print_error_and_exit(NULL, ERROR_EXTENSION);
-}
-
-void	check_error(t_so_long sl)
-{
-	check_extension(sl);
 }
