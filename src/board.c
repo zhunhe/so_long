@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 14:01:27 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 14:12:58 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ static void	set_board_height_width(t_so_long *sl)
 static void	set_board_main(t_so_long *sl)
 {
 	int	i;
-	int j;
-	int idx;
+	int	j;
+	int	idx;
 
 	sl->board = (char **)malloc(sizeof(char *) * sl->height);
 	if (sl->board == NULL)
@@ -104,7 +104,6 @@ static void	set_board_main(t_so_long *sl)
 	}
 }
 
-#include <stdio.h>
 void	set_board(t_so_long *sl)
 {
 	int		size;
