@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 13:27:07 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/04 13:52:20 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	free_struct(t_so_long *sl)
 {
 	size_t	idx;
 
+	if (sl->board == NULL)
+		return ;
 	idx = 0;
 	while (sl->board[idx])
 	{
