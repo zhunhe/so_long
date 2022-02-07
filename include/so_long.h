@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/07 16:26:32 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/07 17:44:13 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void	set_board(t_so_long *sl);
 ** board2.c
 */
 void	set_board_data(t_so_long *sl, const char c);
+void	print_board(t_so_long *sl);
 # define BUFFER_SIZE	1000000
 #endif

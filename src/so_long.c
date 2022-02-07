@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/07 17:46:41 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/07 17:49:38 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	so_long(char *file_name)
 	init_struct(&sl, file_name);
 	check_extension(sl);
 	set_board(&sl);
+	print_board(&sl);
 	ptr = mlx_init();
 	mlx_loop(ptr);
 }
