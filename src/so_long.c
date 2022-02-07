@@ -6,12 +6,13 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/07 16:26:21 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/07 17:46:41 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "so_long.h"
+#include "mlx.h"
 
 static void	init_struct(t_so_long *sl, char *file_name)
 {
@@ -28,10 +29,13 @@ static void	init_struct(t_so_long *sl, char *file_name)
 void	so_long(char *file_name)
 {
 	t_so_long	sl;
+	void		*ptr;
 
 	init_struct(&sl, file_name);
 	check_extension(sl);
 	set_board(&sl);
+	ptr = mlx_init();
+	mlx_loop(ptr);
 }
 
 void	free_struct(t_so_long *sl)
