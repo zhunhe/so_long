@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/07 16:25:47 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/07 16:30:43 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void	set_string(t_so_long *sl)
 		buffer[len] = '\0';
 		ft_strlcat(sl->s, buffer, len + 1);
 	}
+	close(fd);
 }
 
 static void	set_board_height_width(t_so_long *sl)
