@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/02/07 17:34:02 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/07 20:03:20 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = ./src
 INC_DIR = ./include
+HEADER = $(INC_DIR)/so_long.h
 
 SRCS = $(addprefix $(SRC_DIR)/, \
 	main.c \
@@ -61,8 +62,8 @@ $(LIBFT_AR) :
 $(MLX_AR) :
 	make -C $(MLX_DIR)
 
-%.o : %.c
-	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -I $(MLX_DIR) -I $(INC_DIR) -c $^ -o $@
+%.o : %.c $(HEADER)
+	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -I $(MLX_DIR) -I $(INC_DIR) -c $< -o $@
 
-$(NAME) : $(LIBFT_AR) $(MLX_AR) $(OBJS)
-	$(CC) $(CFLAGS) $(LIB_FLAG) $^ -I $(INC_DIR) -o $@
+$(NAME) : $(LIBFT_AR) $(MLX_AR) $(OBJS) $(HEADER)
+	$(CC) $(CFLAGS) $(LIB_FLAG) $(LIBFT_AR) $(MLX_AR) $(OBJS) -I $(INC_DIR) -o $@
