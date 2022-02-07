@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 15:57:02 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/07 16:26:21 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ static void	init_struct(t_so_long *sl, char *file_name)
 	sl->s = NULL;
 	sl->height = 0;
 	sl->width = 0;
+	sl->collectible_cnt = 0;
+	sl->exit_cnt = 0;
+	sl->player_cnt = 0;
 }
 
 void	so_long(char *file_name)
@@ -29,8 +32,6 @@ void	so_long(char *file_name)
 	init_struct(&sl, file_name);
 	check_extension(sl);
 	set_board(&sl);
-	check_wall(&sl);
-	check_invalid_char(&sl);
 }
 
 void	free_struct(t_so_long *sl)

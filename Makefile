@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/02/03 20:56:02 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/07 15:25:06 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = $(addprefix $(SRC_DIR)/, \
 	check_error.c	\
 	print_error.c	\
 	board.c	\
+	board2.c	\
 )
 
 OBJS = $(SRCS:.c=.o)

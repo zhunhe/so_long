@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 15:31:08 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/07 16:25:47 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ static void	set_board_main(t_so_long *sl)
 		while (++j < sl->width)
 		{
 			sl->board[i][j] = sl->s[idx++];
+			set_board_data(sl, sl->board[i][j]);
 			if (sl->s[idx] == '\n')
 				idx++;
 		}
@@ -129,4 +130,7 @@ void	set_board(t_so_long *sl)
 	set_string(sl);
 	set_board_height_width(sl);
 	set_board_main(sl);
+	check_board_data(sl);
+	check_wall(sl);
+	check_invalid_char(sl);
 }

@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/04 15:59:42 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/07 16:22:17 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,14 @@ void	check_invalid_char(t_so_long *sl)
 			print_error_and_exit(sl, ERROR_INVALID_CHAR);
 		}
 	}
+}
+
+void	check_board_data(t_so_long *sl)
+{
+	if (sl->player_cnt == 0)
+		print_error_and_exit(sl, ERROR_NO_PLAYER);
+	if (sl->exit_cnt == 0)
+		print_error_and_exit(sl, ERROR_NO_EXIT);
+	if (sl->collectible_cnt == 0)
+		print_error_and_exit(sl, ERROR_NO_COLLECTIBLE);
 }
