@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/07 17:45:48 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 12:33:47 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	check_wall(t_so_long *sl)
 	int	j;
 
 	i = -1;
-	while (++i < sl->height)
+	while (++i < sl->h)
 	{
 		j = -1;
-		while (++j < sl->width)
-			if (i == 0 || i == sl->height - 1 || j == 0 || j == sl->width - 1)
+		while (++j < sl->w)
+			if (i == 0 || i == sl->h - 1 || j == 0 || j == sl->w - 1)
 				if (sl->board[i][j] != WALL)
 					print_error_and_exit(sl, ERROR_WALL);
 	}
@@ -46,10 +46,10 @@ void	check_invalid_char(t_so_long *sl)
 	int	j;
 
 	i = -1;
-	while (++i < sl->height)
+	while (++i < sl->h)
 	{
 		j = -1;
-		while (++j < sl->width)
+		while (++j < sl->w)
 		{
 			if (sl->board[i][j] == EMPTY)
 				continue ;

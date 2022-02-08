@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:58 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 11:12:29 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 13:36:31 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	print_board(t_so_long *sl)
 	int	j;
 
 	i = -1;
-	while (++i < sl->height)
+	while (++i < sl->h)
 	{
 		j = -1;
-		while (++j < sl->width)
+		while (++j < sl->w)
 			write(1, &sl->board[i][j], 1);
 		write(1, "\n", 1);
 	}

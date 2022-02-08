@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:27:06 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 11:09:53 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 13:53:03 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	init_struct(t_so_long *sl, char *file_name)
 	sl->file_name = file_name;
 	sl->board = NULL;
 	sl->s = NULL;
-	sl->height = 0;
-	sl->width = 0;
+	sl->h = 0;
+	sl->w = 0;
 	sl->collectible_cnt = 0;
 	sl->exit_cnt = 0;
 	sl->player_cnt = 0;

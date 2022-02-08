@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 11:13:37 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 13:52:29 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_so_long
 	char		*file_name;
 	char		**board;
 	char		*s;
-	int			height;
-	int			width;
+	int			h;
+	int			w;
 	int			collectible_cnt;
 	int			exit_cnt;
 	int			player_cnt;
