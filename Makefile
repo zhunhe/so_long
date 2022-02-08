@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/02/08 11:38:24 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/08 14:16:13 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = $(addprefix $(SRC_DIR)/, \
 	main.c \
 	so_long.c	\
 	check_error.c	\
-	print_error.c	\
+	print.c	\
 	board.c	\
 	board2.c	\
 	init.c	\

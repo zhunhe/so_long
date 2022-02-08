@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 14:03:36 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 14:18:28 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	check_wall(t_so_long *sl);
 void	check_invalid_char(t_so_long *sl);
 void	check_board_data(t_so_long *sl);
 /*
-** print_error.c
+** print.c
 */
 void	print_error_and_exit(t_so_long *sl, char *s);
 /*
