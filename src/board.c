@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 11:13:50 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 11:24:27 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static int	get_file_size(char *file_name)
 			break ;
 		size += len;
 	}
+	close(fd);
 	return (size);
 }
 
