@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 15:42:52 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 16:10:29 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_so_long
 # define KEY_A			0
 # define KEY_S			1
 # define KEY_D			2
+# define KEY_ESC		53
 
 # define ERROR_EXTENSION		"Error! file extension is not .ber"
 # define ERROR_FD				"Error! invalid file descriptor"
