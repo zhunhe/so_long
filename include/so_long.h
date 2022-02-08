@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 13:52:29 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 14:03:36 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,18 @@ typedef struct s_so_long
 	t_player	player;
 }	t_so_long;
 
+# define LEN			72
+
 # define EMPTY			'0'
 # define WALL			'1'
 # define COLLECTIBLE	'C'
 # define EXIT			'E'
 # define PLAYER			'P'
+
+# define KEY_W			13
+# define KEY_A			0
+# define KEY_S			1
+# define KEY_D			2
 
 # define ERROR_EXTENSION		"Error! file extension is not .ber"
 # define ERROR_FD				"Error! invalid file descriptor"
@@ -85,5 +92,9 @@ void	set_board(t_so_long *sl);
 */
 void	set_board_data(t_so_long *sl, const char c, int y, int x);
 void	print_board(t_so_long *sl);
+/*
+** key_hook.c
+*/
+int	key_hook(int keycode, t_so_long *sl);
 # define BUFFER_SIZE	1000000
 #endif

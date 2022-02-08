@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 11:05:13 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 13:58:02 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	so_long(char *file_name)
 	set_board(&sl);
 	print_board(&sl);
 	sl.mlx.p = mlx_init();
+	sl.mlx.w = mlx_new_window(sl.mlx.p, sl.h * LEN, sl.w * LEN, "juhur");
+	mlx_key_hook(sl.mlx.w, key_hook, &sl);
 	mlx_loop(sl.mlx.p);
 }
 
