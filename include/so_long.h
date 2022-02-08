@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 15:34:10 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 15:39:09 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,6 @@ void	print_board(t_so_long *sl);
 /*
 ** key_hook.c
 */
-int	key_hook(int keycode, t_so_long *sl);
+int		key_hook(int keycode, t_so_long *sl);
 # define BUFFER_SIZE	1000000
 #endif
