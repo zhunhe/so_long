@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 12:33:47 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 15:35:33 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	check_extension(t_so_long sl)
 
 	len = ft_strlen(sl.file_name);
 	if (len < 5)
-		print_error_and_exit(NULL, ERROR_EXTENSION);
+		sl_exit(NULL, ERROR_EXTENSION);
 	if (ft_strcmp(sl.file_name + len - 4, ".ber") != 0)
-		print_error_and_exit(NULL, ERROR_EXTENSION);
+		sl_exit(NULL, ERROR_EXTENSION);
 }
 
 void	check_wall(t_so_long *sl)
@@ -36,7 +36,7 @@ void	check_wall(t_so_long *sl)
 		while (++j < sl->w)
 			if (i == 0 || i == sl->h - 1 || j == 0 || j == sl->w - 1)
 				if (sl->board[i][j] != WALL)
-					print_error_and_exit(sl, ERROR_WALL);
+					sl_exit(sl, ERROR_WALL);
 	}
 }
 
@@ -61,7 +61,7 @@ void	check_invalid_char(t_so_long *sl)
 				continue ;
 			if (sl->board[i][j] == PLAYER)
 				continue ;
-			print_error_and_exit(sl, ERROR_INVALID_CHAR);
+			sl_exit(sl, ERROR_INVALID_CHAR);
 		}
 	}
 }
@@ -69,9 +69,9 @@ void	check_invalid_char(t_so_long *sl)
 void	check_board_data(t_so_long *sl)
 {
 	if (sl->player_cnt == 0)
-		print_error_and_exit(sl, ERROR_NO_PLAYER);
+		sl_exit(sl, ERROR_NO_PLAYER);
 	if (sl->exit_cnt == 0)
-		print_error_and_exit(sl, ERROR_NO_EXIT);
+		sl_exit(sl, ERROR_NO_EXIT);
 	if (sl->collectible_cnt == 0)
-		print_error_and_exit(sl, ERROR_NO_COLLECTIBLE);
+		sl_exit(sl, ERROR_NO_COLLECTIBLE);
 }

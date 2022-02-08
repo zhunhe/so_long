@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 12:34:30 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 15:35:25 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static int	get_file_size(char *file_name)
 	size = 0;
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
-		print_error_and_exit(NULL, ERROR_FD);
+		sl_exit(NULL, ERROR_FD);
 	while (1)
 	{
 		len = read(fd, buffer, BUFFER_SIZE);
 		if (len == -1)
 		{
 			close(fd);
-			print_error_and_exit(NULL, ERROR_FD);
+			sl_exit(NULL, ERROR_FD);
 		}
 		if (len == 0)
 			break ;
@@ -51,13 +51,13 @@ static void	set_string(t_so_long *sl)
 
 	fd = open(sl->file_name, O_RDONLY);
 	if (fd == -1)
-		print_error_and_exit(NULL, ERROR_FD);
+		sl_exit(NULL, ERROR_FD);
 	*sl->s = '\0';
 	while (1)
 	{
 		len = read(fd, buffer, BUFFER_SIZE);
 		if (len == -1)
-			print_error_and_exit(NULL, ERROR_FD);
+			sl_exit(NULL, ERROR_FD);
 		if (len == 0)
 			break ;
 		buffer[len] = '\0';
@@ -91,7 +91,7 @@ static void	set_board_height_width(t_so_long *sl)
 		if (sl->w == 0)
 			sl->w = len;
 		else if (sl->w != len)
-			print_error_and_exit(sl, ERROR_RECTANGLE);
+			sl_exit(sl, ERROR_RECTANGLE);
 	}
 }
 
@@ -103,14 +103,14 @@ static void	set_board_main(t_so_long *sl)
 
 	sl->board = (char **)malloc(sizeof(char *) * (sl->h + 1));
 	if (sl->board == NULL)
-		print_error_and_exit(sl, ERROR_MALLOC);
+		sl_exit(sl, ERROR_MALLOC);
 	idx = 0;
 	i = -1;
 	while (++i < sl->h)
 	{
 		sl->board[i] = (char *)malloc(sizeof(char) * (sl->w + 1));
 		if (sl->board[i] == NULL)
-			print_error_and_exit(sl, ERROR_MALLOC);
+			sl_exit(sl, ERROR_MALLOC);
 		j = -1;
 		while (++j < sl->w)
 		{
@@ -128,10 +128,10 @@ void	set_board(t_so_long *sl)
 
 	size = get_file_size(sl->file_name);
 	if (size < 14)
-		print_error_and_exit(sl, ERROR_MAP_SIZE);
+		sl_exit(sl, ERROR_MAP_SIZE);
 	sl->s = (char *)malloc(sizeof(char) * (size + 1));
 	if (sl->s == NULL)
-		print_error_and_exit(sl, ERROR_MALLOC);
+		sl_exit(sl, ERROR_MALLOC);
 	set_string(sl);
 	set_board_height_width(sl);
 	set_board_main(sl);
