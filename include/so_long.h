@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 14:18:28 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 15:24:54 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_so_long
 	int			collectible_cnt;
 	int			exit_cnt;
 	int			player_cnt;
+	int			move_cnt;
 	t_mlx		mlx;
 	t_player	player;
 }	t_so_long;
