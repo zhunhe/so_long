@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 13:58:02 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 16:22:11 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ void	so_long(char *file_name)
 
 void	free_struct(t_so_long *sl)
 {
-	size_t	idx;
+	int	idx;
 
 	if (sl->board == NULL)
 		return ;
 	idx = 0;
-	while (sl->board[idx])
+	while (idx < sl->h)
 	{
-		free(sl->board[idx]);
+		if (sl->board[idx])
+			free(sl->board[idx]);
 		sl->board[idx++] = NULL;
 	}
 	if (sl->board)
