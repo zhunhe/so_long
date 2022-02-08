@@ -6,11 +6,11 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:58 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 13:36:31 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 15:54:01 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 #include "so_long.h"
 
 void	set_board_data(t_so_long *sl, const char c, int y, int x)
@@ -37,7 +37,7 @@ void	print_board(t_so_long *sl)
 	{
 		j = -1;
 		while (++j < sl->w)
-			write(1, &sl->board[i][j], 1);
-		write(1, "\n", 1);
+			printf("%c", sl->board[i][j]);
+		printf("\n");
 	}
 }
