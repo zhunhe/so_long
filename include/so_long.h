@@ -6,12 +6,18 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/07 17:44:13 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 11:04:46 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+typedef struct s_mlx
+{
+	void	*p;
+	void	*w;
+}	t_mlx;
 
 typedef struct s_so_long
 {
@@ -23,6 +29,7 @@ typedef struct s_so_long
 	int			collectible_cnt;
 	int			exit_cnt;
 	int			player_cnt;
+	t_mlx		mlx;
 }	t_so_long;
 
 # define EMPTY			'0'
@@ -47,6 +54,10 @@ typedef struct s_so_long
 */
 void	so_long(char *file_name);
 void	free_struct(t_so_long *sl);
+/*
+** init.c
+*/
+void	init_struct(t_so_long *sl, char *file_name);
 /*
 ** check_error.c
 */
