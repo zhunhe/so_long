@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:33:25 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 16:22:28 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 20:43:46 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,11 @@ int	key_hook(int key, t_so_long *sl)
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		move(sl, key % 10);
 	print_board(sl);
+	return (0);
+}
+
+int	mouse_hook(t_so_long *sl)
+{
+	sl_exit(sl, NULL);
 	return (0);
 }
