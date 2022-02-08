@@ -6,14 +6,14 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:33:25 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 15:13:55 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 15:47:34 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "so_long.h"
 
-#include <stdio.h>
 static void	move(t_so_long *sl, int dir)
 {
 	const int	dy[4] = {0, 1, 0, -1};
@@ -38,9 +38,10 @@ static void	move(t_so_long *sl, int dir)
 	sl->player.x = nx;
 }
 
-int	key_hook(int keycode, t_so_long *sl)
+int	key_hook(int key, t_so_long *sl)
 {
-	move(sl, keycode % 10);
+	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
+		move(sl, key % 10);
 	print_board(sl);
 	return (0);
 }
