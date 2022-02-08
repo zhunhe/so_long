@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:27:06 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 11:04:00 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 11:09:53 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ static void	init_mlx(t_so_long *sl)
 {
 	sl->mlx.p = NULL;
 	sl->mlx.w = NULL;
+}
+
+static void	init_player(t_so_long *sl)
+{
+	sl->player.y = -1;
+	sl->player.x = -1;
 }
 
 void	init_struct(t_so_long *sl, char *file_name)
@@ -30,4 +36,5 @@ void	init_struct(t_so_long *sl, char *file_name)
 	sl->exit_cnt = 0;
 	sl->player_cnt = 0;
 	init_mlx(sl);
+	init_player(sl);
 }

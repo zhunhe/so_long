@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 11:04:46 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 11:13:37 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ typedef struct s_mlx
 	void	*w;
 }	t_mlx;
 
+typedef struct s_player
+{
+	int		y;
+	int		x;
+}	t_player;
+
 typedef struct s_so_long
 {
 	char		*file_name;
@@ -30,6 +36,7 @@ typedef struct s_so_long
 	int			exit_cnt;
 	int			player_cnt;
 	t_mlx		mlx;
+	t_player	player;
 }	t_so_long;
 
 # define EMPTY			'0'
@@ -76,7 +83,7 @@ void	set_board(t_so_long *sl);
 /*
 ** board2.c
 */
-void	set_board_data(t_so_long *sl, const char c);
+void	set_board_data(t_so_long *sl, const char c, int y, int x);
 void	print_board(t_so_long *sl);
 # define BUFFER_SIZE	1000000
 #endif
