@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:33:25 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 15:47:34 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/08 16:22:28 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	move(t_so_long *sl, int dir)
 	|| (sl->board[ny][nx] == EXIT && sl->collectible_cnt != 0))
 		return ;
 	if (sl->board[ny][nx] == EXIT)
-		exit(0);
+		sl_exit(sl, NULL);
 	if (sl->board[ny][nx] == COLLECTIBLE)
 		sl->collectible_cnt--;
 	sl->move_cnt++;
@@ -40,6 +40,8 @@ static void	move(t_so_long *sl, int dir)
 
 int	key_hook(int key, t_so_long *sl)
 {
+	if (key == KEY_ESC)
+		sl_exit(sl, NULL);
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		move(sl, key % 10);
 	print_board(sl);
