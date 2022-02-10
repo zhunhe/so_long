@@ -6,50 +6,53 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:33:25 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 20:43:46 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/10 20:52:19 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "so_long.h"
 
-static void	move(t_so_long *sl, int dir)
+static void	move(t_so_long *g, int dir)
 {
 	const int	dy[4] = {0, 1, 0, -1};
 	const int	dx[4] = {-1, 0, 1, 0};
-	const int	ny = sl->player.y + dy[dir];
-	const int	nx = sl->player.x + dx[dir];
+	const int	ny = g->y + dy[dir];
+	const int	nx = g->x + dx[dir];
 
-	if (ny < 0 || nx < 0 || ny >= sl->h || nx >= sl->w)
+	if (ny < 0 || nx < 0 || ny >= g->board_h || nx >= g->board_w)
 		return ;
-	if (sl->board[ny][nx] == WALL
-	|| (sl->board[ny][nx] == EXIT && sl->collectible_cnt != 0))
+	if (g->board[ny][nx] == WALL
+	|| (g->board[ny][nx] == EXIT && g->collectible_cnt != 0))
 		return ;
-	if (sl->board[ny][nx] == EXIT)
-		sl_exit(sl, NULL);
-	if (sl->board[ny][nx] == COLLECTIBLE)
-		sl->collectible_cnt--;
-	sl->move_cnt++;
-	printf("move count [%d]\n", sl->move_cnt);
-	sl->board[sl->player.y][sl->player.x] = EMPTY;
-	sl->board[ny][nx] = PLAYER;
-	sl->player.y = ny;
-	sl->player.x = nx;
+	if (g->board[ny][nx] == EXIT)
+		sl_exit(g, NULL);
+	if (g->board[ny][nx] == COLLECTIBLE)
+		g->collectible_cnt--;
+	g->move_cnt++;
+	if (g->move_cnt == MAX_MOVE_COUNT)
+		sl_exit(g, MOVE_COUNT_OVER);
+	printf("move count [%d/%d]\n", g->move_cnt, MAX_MOVE_COUNT);
+	g->board[g->y][g->x] = EMPTY;
+	g->board[ny][nx] = PLAYER;
+	g->y = ny;
+	g->x = nx;
+	print_player(g, nx - dx[dir], ny - dy[dir]);
 }
 
-int	key_hook(int key, t_so_long *sl)
+int	key_hook(int key, t_so_long *g)
 {
 	if (key == KEY_ESC)
-		sl_exit(sl, NULL);
+		sl_exit(g, NULL);
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
-		move(sl, key % 10);
-	print_board(sl);
+		move(g, key % 10);
 	return (0);
 }
 
-int	mouse_hook(t_so_long *sl)
+int	mouse_hook(t_so_long *g)
 {
-	sl_exit(sl, NULL);
+	sl_exit(g, NULL);
 	return (0);
 }

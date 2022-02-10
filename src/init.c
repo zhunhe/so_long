@@ -6,36 +6,43 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:27:06 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 14:22:56 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/10 13:22:29 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "so_long.h"
+#include "mlx.h"
 
-static void	init_mlx(t_so_long *sl)
+static void	set_image(void *mlx, char *path, t_img *image)
 {
-	sl->mlx.p = NULL;
-	sl->mlx.w = NULL;
+	image->img = mlx_xpm_file_to_image(mlx, path, &image->w, &image->h);
 }
 
-static void	init_player(t_so_long *sl)
+void	init_mlx(t_so_long *g)
 {
-	sl->player.y = -1;
-	sl->player.x = -1;
+	g->mlx = mlx_init();
+	set_image(g->mlx, PATH_BACKGROUND, &g->bg);
+	set_image(g->mlx, PATH_PLAYER, &g->player);
+	set_image(g->mlx, PATH_WALL, &g->wall);
+	set_image(g->mlx, PATH_EXIT, &g->exit);
+	set_image(g->mlx, PATH_COLLECTIBLE, &g->collectible);
+	g->win_w = g->board_w * g->bg.w;
+	g->win_h = g->board_h * g->bg.h;
 }
 
-void	init_struct(t_so_long *sl, char *file_name)
+void	init_struct(t_so_long *g, char *file_name)
 {
-	sl->file_name = file_name;
-	sl->board = NULL;
-	sl->s = NULL;
-	sl->h = 0;
-	sl->w = 0;
-	sl->collectible_cnt = 0;
-	sl->exit_cnt = 0;
-	sl->player_cnt = 0;
-	sl->move_cnt = 0;
-	init_mlx(sl);
-	init_player(sl);
+	g->file_name = file_name;
+	g->board = NULL;
+	g->s = NULL;
+	g->board_h = 0;
+	g->board_w = 0;
+	g->collectible_cnt = 0;
+	g->exit_cnt = 0;
+	g->player_cnt = 0;
+	g->move_cnt = 0;
+	g->y = -1;
+	g->x = -1;
+	init_mlx(g);
 }

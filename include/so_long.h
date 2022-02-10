@@ -6,41 +6,44 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 20:43:56 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/10 20:09:36 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-typedef struct s_mlx
+typedef struct s_img
 {
-	void	*p;
-	void	*w;
-}	t_mlx;
-
-typedef struct s_player
-{
-	int		y;
-	int		x;
-}	t_player;
+	void	*img;
+	char	*path;
+	int		h;
+	int		w;
+}	t_img;
 
 typedef struct s_so_long
 {
 	char		*file_name;
 	char		**board;
 	char		*s;
-	int			h;
-	int			w;
+	int			board_h;
+	int			board_w;
 	int			collectible_cnt;
 	int			exit_cnt;
 	int			player_cnt;
 	int			move_cnt;
-	t_mlx		mlx;
-	t_player	player;
+	void		*mlx;
+	void		*win;
+	int			y;
+	int			x;
+	int			win_h;
+	int			win_w;
+	t_img		bg;
+	t_img		player;
+	t_img		wall;
+	t_img		exit;
+	t_img		collectible;
 }	t_so_long;
-
-# define LEN			72
 
 # define EMPTY			'0'
 # define WALL			'1'
@@ -54,6 +57,8 @@ typedef struct s_so_long
 # define KEY_D			2
 # define KEY_ESC		53
 
+# define MAX_MOVE_COUNT	100
+
 # define ERROR_EXTENSION		"Error! file extension is not .ber"
 # define ERROR_FD				"Error! invalid file descriptor"
 # define ERROR_MAP_SIZE			"Error! invalid map size"
@@ -64,40 +69,51 @@ typedef struct s_so_long
 # define ERROR_NO_PLAYER		"Error! there is no player on the board"
 # define ERROR_NO_EXIT			"Error! there is no exit on the board"
 # define ERROR_NO_COLLECTIBLE	"Error! there is no collectible on the board"
+# define MOVE_COUNT_OVER		"Game Over!"
+
+# define PATH_BACKGROUND		"./image/background.xpm"
+# define PATH_PLAYER			"./image/player.xpm"
+# define PATH_WALL				"./image/wall.xpm"
+# define PATH_EXIT				"./image/exit.xpm"
+# define PATH_COLLECTIBLE		"./image/collectible.xpm"
 
 /*
 ** so_long.c
 */
 void	so_long(char *file_name);
-void	free_struct(t_so_long *sl);
+void	free_struct(t_so_long *g);
+void	destroy_image(t_so_long *g);
 /*
 ** init.c
 */
-void	init_struct(t_so_long *sl, char *file_name);
+void	init_struct(t_so_long *g, char *file_name);
+void	init_mlx(t_so_long *g);
 /*
 ** check_error.c
 */
-void	check_extension(t_so_long sl);
-void	check_wall(t_so_long *sl);
-void	check_invalid_char(t_so_long *sl);
-void	check_board_data(t_so_long *sl);
+void	check_extension(t_so_long g);
+void	check_wall(t_so_long *g);
+void	check_invalid_char(t_so_long *g);
+void	check_board_data(t_so_long *g);
 /*
 ** print.c
 */
-void	sl_exit(t_so_long *sl, char *s);
+void	sl_exit(t_so_long *g, char *s);
+void	print_init_image(t_so_long *g);
+void	print_player(t_so_long *g, int b_x, int b_y);
 /*
 ** board.c
 */
-void	set_board(t_so_long *sl);
+void	set_board(t_so_long *g);
 /*
 ** board2.c
 */
-void	set_board_data(t_so_long *sl, const char c, int y, int x);
-void	print_board(t_so_long *sl);
+void	set_board_data(t_so_long *g, const char c, int y, int x);
+void	print_board(t_so_long *g);
 /*
 ** key_hook.c
 */
-int		key_hook(int key, t_so_long *sl);
-int		mouse_hook(t_so_long *sl);
+int		key_hook(int key, t_so_long *g);
+int		mouse_hook(t_so_long *g);
 # define BUFFER_SIZE	1000000
 #endif

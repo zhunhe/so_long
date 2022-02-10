@@ -6,38 +6,38 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:58 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 15:54:01 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/10 12:45:13 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "so_long.h"
 
-void	set_board_data(t_so_long *sl, const char c, int y, int x)
+void	set_board_data(t_so_long *g, const char c, int y, int x)
 {
 	if (c == PLAYER)
 	{
-		sl->player_cnt++;
-		sl->player.y = y;
-		sl->player.x = x;
+		g->player_cnt++;
+		g->y = y;
+		g->x = x;
 	}
 	else if (c == COLLECTIBLE)
-		sl->collectible_cnt++;
+		g->collectible_cnt++;
 	else if (c == EXIT)
-		sl->exit_cnt++;
+		g->exit_cnt++;
 }
 
-void	print_board(t_so_long *sl)
+void	print_board(t_so_long *g)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < sl->h)
+	while (++i < g->board_h)
 	{
 		j = -1;
-		while (++j < sl->w)
-			printf("%c", sl->board[i][j]);
+		while (++j < g->board_w)
+			printf("%c", g->board[i][j]);
 		printf("\n");
 	}
 }

@@ -6,72 +6,72 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/08 15:35:33 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/10 12:45:28 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "libft.h"
 
-void	check_extension(t_so_long sl)
+void	check_extension(t_so_long g)
 {
 	size_t	len;
 
-	len = ft_strlen(sl.file_name);
+	len = ft_strlen(g.file_name);
 	if (len < 5)
 		sl_exit(NULL, ERROR_EXTENSION);
-	if (ft_strcmp(sl.file_name + len - 4, ".ber") != 0)
+	if (ft_strcmp(g.file_name + len - 4, ".ber") != 0)
 		sl_exit(NULL, ERROR_EXTENSION);
 }
 
-void	check_wall(t_so_long *sl)
+void	check_wall(t_so_long *g)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < sl->h)
+	while (++i < g->board_h)
 	{
 		j = -1;
-		while (++j < sl->w)
-			if (i == 0 || i == sl->h - 1 || j == 0 || j == sl->w - 1)
-				if (sl->board[i][j] != WALL)
-					sl_exit(sl, ERROR_WALL);
+		while (++j < g->board_w)
+			if (i == 0 || i == g->board_h - 1 || j == 0 || j == g->board_w - 1)
+				if (g->board[i][j] != WALL)
+					sl_exit(g, ERROR_WALL);
 	}
 }
 
-void	check_invalid_char(t_so_long *sl)
+void	check_invalid_char(t_so_long *g)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < sl->h)
+	while (++i < g->board_h)
 	{
 		j = -1;
-		while (++j < sl->w)
+		while (++j < g->board_w)
 		{
-			if (sl->board[i][j] == EMPTY)
+			if (g->board[i][j] == EMPTY)
 				continue ;
-			if (sl->board[i][j] == WALL)
+			if (g->board[i][j] == WALL)
 				continue ;
-			if (sl->board[i][j] == COLLECTIBLE)
+			if (g->board[i][j] == COLLECTIBLE)
 				continue ;
-			if (sl->board[i][j] == EXIT)
+			if (g->board[i][j] == EXIT)
 				continue ;
-			if (sl->board[i][j] == PLAYER)
+			if (g->board[i][j] == PLAYER)
 				continue ;
-			sl_exit(sl, ERROR_INVALID_CHAR);
+			sl_exit(g, ERROR_INVALID_CHAR);
 		}
 	}
 }
 
-void	check_board_data(t_so_long *sl)
+void	check_board_data(t_so_long *g)
 {
-	if (sl->player_cnt == 0)
-		sl_exit(sl, ERROR_NO_PLAYER);
-	if (sl->exit_cnt == 0)
-		sl_exit(sl, ERROR_NO_EXIT);
-	if (sl->collectible_cnt == 0)
-		sl_exit(sl, ERROR_NO_COLLECTIBLE);
+	if (g->player_cnt == 0)
+		sl_exit(g, ERROR_NO_PLAYER);
+	if (g->exit_cnt == 0)
+		sl_exit(g, ERROR_NO_EXIT);
+	if (g->collectible_cnt == 0)
+		sl_exit(g, ERROR_NO_COLLECTIBLE);
 }
