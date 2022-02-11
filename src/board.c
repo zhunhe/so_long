@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/10 12:44:57 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/11 12:18:55 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	set_board_height_width(t_so_long *g)
 	idx = 0;
 	while (g->s[idx] != '\0')
 	{
-		if (idx == 0 || g->s[idx - 1] == '\n')
+		if (g->s[idx] != '\n' && (idx == 0 || g->s[idx - 1] == '\n'))
 			g->board_h++;
 		idx++;
 	}
