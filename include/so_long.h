@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/12 13:45:40 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 08:11:29 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	check_board_data(t_so_long *g);
 /*
 ** print.c
 */
-void	sl_exit(t_so_long *g, char *s);
+void	exit_so_long(t_so_long *g, char *s);
 void	print_init_image(t_so_long *g);
 void	print_player(t_so_long *g, int b_x, int b_y);
 /*

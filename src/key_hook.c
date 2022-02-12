@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:33:25 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/10 20:52:19 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 08:11:29 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static void	move(t_so_long *g, int dir)
 	|| (g->board[ny][nx] == EXIT && g->collectible_cnt != 0))
 		return ;
 	if (g->board[ny][nx] == EXIT)
-		sl_exit(g, NULL);
+		exit_so_long(g, NULL);
 	if (g->board[ny][nx] == COLLECTIBLE)
 		g->collectible_cnt--;
 	g->move_cnt++;
 	if (g->move_cnt == MAX_MOVE_COUNT)
-		sl_exit(g, MOVE_COUNT_OVER);
+		exit_so_long(g, MOVE_COUNT_OVER);
 	printf("move count [%d/%d]\n", g->move_cnt, MAX_MOVE_COUNT);
 	g->board[g->y][g->x] = EMPTY;
 	g->board[ny][nx] = PLAYER;
@@ -45,7 +45,7 @@ static void	move(t_so_long *g, int dir)
 int	key_hook(int key, t_so_long *g)
 {
 	if (key == KEY_ESC)
-		sl_exit(g, NULL);
+		exit_so_long(g, NULL);
 	if (key == KEY_W || key == KEY_A || key == KEY_S || key == KEY_D)
 		move(g, key % 10);
 	return (0);
@@ -53,6 +53,6 @@ int	key_hook(int key, t_so_long *g)
 
 int	mouse_hook(t_so_long *g)
 {
-	sl_exit(g, NULL);
+	exit_so_long(g, NULL);
 	return (0);
 }

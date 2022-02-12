@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:02:31 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/12 13:38:33 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 08:11:29 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include "mlx.h"
 
-void	sl_exit(t_so_long *g, char *s)
+void	exit_so_long(t_so_long *g, char *s)
 {
 	if (g->s != NULL)
 		free(g->s);
