@@ -6,22 +6,22 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/10 12:45:28 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/12 13:38:14 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "libft.h"
 
-void	check_extension(t_so_long g)
+void	check_extension(t_so_long *g)
 {
 	size_t	len;
 
-	len = ft_strlen(g.file_name);
+	len = ft_strlen(g->file_name);
 	if (len < 5)
-		sl_exit(NULL, ERROR_EXTENSION);
-	if (ft_strcmp(g.file_name + len - 4, ".ber") != 0)
-		sl_exit(NULL, ERROR_EXTENSION);
+		sl_exit(g, ERROR_EXTENSION);
+	if (ft_strcmp(g->file_name + len - 4, ".ber") != 0)
+		sl_exit(g, ERROR_EXTENSION);
 }
 
 void	check_wall(t_so_long *g)

@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/10 21:07:54 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/12 13:43:13 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	so_long(char *file_name)
 	t_so_long	g;
 
 	init_struct(&g, file_name);
-	check_extension(g);
+	check_extension(&g);
 	set_board(&g);
 	print_board(&g);
 	init_mlx(&g);
@@ -33,11 +33,6 @@ void	free_struct(t_so_long *g)
 {
 	int	idx;
 
-	if (g->s)
-	{
-		free(g->s);
-		g->s = NULL;
-	}
 	if (g->board == NULL)
 		return ;
 	idx = 0;

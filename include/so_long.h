@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/12 12:59:50 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/12 13:45:40 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	init_mlx(t_so_long *g);
 /*
 ** check_error.c
 */
-void	check_extension(t_so_long g);
+void	check_extension(t_so_long *g);
 void	check_wall(t_so_long *g);
 void	check_invalid_char(t_so_long *g);
 void	check_board_data(t_so_long *g);
