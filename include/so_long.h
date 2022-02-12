@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 08:11:29 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 08:24:16 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_so_long
 # define KEY_S			1
 # define KEY_D			2
 # define KEY_ESC		53
+
+# define DESTROY_NOTIFY	17
 
 # define MAX_MOVE_COUNT	100
 

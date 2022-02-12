@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/12 13:43:13 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 08:27:33 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	so_long(char *file_name)
 	print_board(&g);
 	init_mlx(&g);
 	print_init_image(&g);
-	mlx_hook(g.win, 17, 0, mouse_hook, &g);
+	mlx_hook(g.win, DESTROY_NOTIFY, 0, mouse_hook, &g);
 	mlx_key_hook(g.win, key_hook, &g);
 	mlx_loop(g.mlx);
 }
