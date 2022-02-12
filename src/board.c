@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:19:15 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/11 12:43:33 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/12 13:04:16 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,23 +71,19 @@ static void	set_board_height_width(t_so_long *g)
 	int	idx;
 	int	len;
 
-	idx = 0;
-	while (g->s[idx] != '\0')
-	{
+	idx = -1;
+	while (++idx < g->s_size)
 		if (g->s[idx] != '\n' && (idx == 0 || g->s[idx - 1] == '\n'))
 			g->board_h++;
-		idx++;
-	}
-	idx = 0;
-	while (g->s[idx] != '\0')
+	idx = -1;
+	while (++idx < g->s_size)
 	{
 		len = 0;
-		while (g->s[idx] != '\0' && g->s[idx] != '\n')
+		while (idx < g->s_size && g->s[idx] != '\n')
 		{
 			idx++;
 			len++;
 		}
-		idx++;
 		if (g->board_w == 0)
 			g->board_w = len;
 		else if (g->board_w != len)
@@ -124,12 +120,10 @@ static void	set_board_main(t_so_long *g)
 
 void	set_board(t_so_long *g)
 {
-	int		size;
-
-	size = get_file_size(g->file_name);
-	if (size < 14)
+	g->s_size = get_file_size(g->file_name);
+	if (g->s_size < 17)
 		sl_exit(g, ERROR_MAP_SIZE);
-	g->s = (char *)malloc(sizeof(char) * (size + 1));
+	g->s = (char *)malloc(sizeof(char) * (g->s_size + 1));
 	if (g->s == NULL)
 		sl_exit(g, ERROR_MALLOC);
 	set_string(g);
