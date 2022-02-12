@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:27:06 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/10 13:22:29 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/12 12:20:55 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void	init_struct(t_so_long *g, char *file_name)
 	g->move_cnt = 0;
 	g->y = -1;
 	g->x = -1;
+	g->mlx = NULL;
+	g->win = NULL;
 	init_mlx(g);
 }

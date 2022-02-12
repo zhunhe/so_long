@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:02:31 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/10 20:54:00 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/12 12:19:34 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 void	sl_exit(t_so_long *g, char *s)
 {
-	destroy_image(g);
+	if (g->win != NULL)
+		destroy_image(g);
 	if (g != NULL)
 		free_struct(g);
 	if (s != NULL)
