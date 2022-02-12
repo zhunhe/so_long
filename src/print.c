@@ -6,28 +6,12 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:02:31 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 08:11:29 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 08:53:20 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "so_long.h"
-#include "libft.h"
 #include "mlx.h"
-
-void	exit_so_long(t_so_long *g, char *s)
-{
-	if (g->s != NULL)
-		free(g->s);
-	if (g->win != NULL)
-		destroy_image(g);
-	if (g->board != NULL)
-		free_struct(g);
-	if (s != NULL)
-		printf("%s\n", s);
-	exit(0);
-}
 
 static void	print_image(t_so_long *g, void *img, int x, int y)
 {

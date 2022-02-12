@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 08:24:16 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 08:51:26 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,7 @@ typedef struct s_so_long
 ** so_long.c
 */
 void	so_long(char *file_name);
-void	free_struct(t_so_long *g);
-void	destroy_image(t_so_long *g);
+void	exit_so_long(t_so_long *g, char *s);
 /*
 ** init.c
 */
@@ -101,7 +100,6 @@ void	check_board_data(t_so_long *g);
 /*
 ** print.c
 */
-void	exit_so_long(t_so_long *g, char *s);
 void	print_init_image(t_so_long *g);
 void	print_player(t_so_long *g, int b_x, int b_y);
 /*
