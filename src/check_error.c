@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 09:03:28 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:40:15 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	check_wall(t_so_long *g)
 	while (++i < g->board_w)
 		if (g->board[0][i] != WALL || g->board[g->board_h - 1][i] != WALL)
 			exit_so_long(g, ERROR_WALL);
-		
 }
 
 void	check_invalid_char(t_so_long *g)
