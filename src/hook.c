@@ -6,13 +6,11 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:33:25 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 09:11:09 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:24:51 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
 #include "so_long.h"
 
 static void	move(t_so_long *g, int dir)
