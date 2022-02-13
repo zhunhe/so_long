@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/02/08 14:16:13 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/13 09:16:14 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS = $(addprefix $(SRC_DIR)/, \
 	board.c	\
 	board2.c	\
 	init.c	\
-	key_hook.c	\
+	hook.c	\
 )
 
 OBJS = $(SRCS:.c=.o)
