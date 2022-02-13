@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:56:24 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 08:52:35 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:28:16 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,6 @@
 #include <stdlib.h>
 #include "so_long.h"
 #include "mlx.h"
-
-void	so_long(char *file_name)
-{
-	t_so_long	g;
-
-	init_struct(&g, file_name);
-	check_extension(&g);
-	set_board(&g);
-	print_board(&g);
-	init_mlx(&g);
-	print_init_image(&g);
-	mlx_hook(g.win, DESTROY_NOTIFY, 0, mouse_hook, &g);
-	mlx_key_hook(g.win, key_hook, &g);
-	mlx_loop(g.mlx);
-}
 
 static void	free_struct(t_so_long *g)
 {

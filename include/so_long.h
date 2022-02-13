@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 09:13:55 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:29:00 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ typedef struct s_so_long
 /*
 ** so_long.c
 */
-void	so_long(char *file_name);
 void	exit_so_long(t_so_long *g, char *s);
 /*
 ** init.c
