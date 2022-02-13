@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 08:11:29 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:03:28 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,16 @@ void	check_extension(t_so_long *g)
 void	check_wall(t_so_long *g)
 {
 	int	i;
-	int	j;
 
 	i = -1;
 	while (++i < g->board_h)
-	{
-		j = -1;
-		while (++j < g->board_w)
-			if (i == 0 || i == g->board_h - 1 || j == 0 || j == g->board_w - 1)
-				if (g->board[i][j] != WALL)
-					exit_so_long(g, ERROR_WALL);
-	}
+		if (g->board[i][0] != WALL || g->board[i][g->board_w - 1] != WALL)
+			exit_so_long(g, ERROR_WALL);
+	i = -1;
+	while (++i < g->board_w)
+		if (g->board[0][i] != WALL || g->board[g->board_h - 1][i] != WALL)
+			exit_so_long(g, ERROR_WALL);
+		
 }
 
 void	check_invalid_char(t_so_long *g)
