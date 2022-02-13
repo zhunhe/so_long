@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 09:29:00 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:34:23 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ typedef struct s_so_long
 # define PATH_COLLECTIBLE		"./image/collectible.xpm"
 
 /*
-** so_long.c
+** exit.c
 */
 void	exit_so_long(t_so_long *g, char *s);
 /*

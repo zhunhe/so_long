@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/29 20:29:45 by juhur             #+#    #+#              #
-#    Updated: 2022/02/13 09:16:14 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/13 09:34:33 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ HEADER = $(INC_DIR)/so_long.h
 
 SRCS = $(addprefix $(SRC_DIR)/, \
 	main.c \
-	so_long.c	\
+	exit.c	\
 	check_error.c	\
 	print.c	\
 	board.c	\
