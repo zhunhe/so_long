@@ -6,7 +6,7 @@
 #    By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 11:24:52 by juhur             #+#    #+#              #
-#    Updated: 2022/02/03 21:15:55 by juhur            ###   ########.fr        #
+#    Updated: 2022/02/13 16:45:49 by juhur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = \
 	ft_strlen.c \
-	ft_strchr.c \
 	ft_strcmp.c	\
 	ft_strlcat.c	\
 
