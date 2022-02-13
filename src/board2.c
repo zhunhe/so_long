@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:14:58 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/10 12:45:13 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:43:07 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	set_board_data(t_so_long *g, const char c, int y, int x)
 {
 	if (c == PLAYER)
 	{
-		g->player_cnt++;
+		g->player.count++;
 		g->y = y;
 		g->x = x;
 	}
 	else if (c == COLLECTIBLE)
-		g->collectible_cnt++;
+		g->collectible.count++;
 	else if (c == EXIT)
-		g->exit_cnt++;
+		g->exit.count++;
 }
 
 void	print_board(t_so_long *g)

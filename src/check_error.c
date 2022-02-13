@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 16:49:47 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 09:40:15 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:43:07 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void	check_invalid_char(t_so_long *g)
 
 void	check_board_data(t_so_long *g)
 {
-	if (g->player_cnt == 0)
+	if (g->player.count == 0)
 		exit_so_long(g, ERROR_NO_PLAYER);
-	if (g->exit_cnt == 0)
+	if (g->exit.count == 0)
 		exit_so_long(g, ERROR_NO_EXIT);
-	if (g->collectible_cnt == 0)
+	if (g->collectible.count == 0)
 		exit_so_long(g, ERROR_NO_COLLECTIBLE);
 }

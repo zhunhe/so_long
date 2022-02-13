@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 15:06:52 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 09:34:23 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:44:13 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_img
 	char	*path;
 	int		h;
 	int		w;
+	int		count;
 }	t_img;
 
 typedef struct s_so_long
@@ -29,10 +30,7 @@ typedef struct s_so_long
 	int			s_size;
 	int			board_h;
 	int			board_w;
-	int			collectible_cnt;
-	int			exit_cnt;
-	int			player_cnt;
-	int			move_cnt;
+	int			move_count;
 	void		*mlx;
 	void		*win;
 	int			y;

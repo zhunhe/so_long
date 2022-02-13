@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:33:25 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/13 09:24:51 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/13 09:44:03 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ static void	move(t_so_long *g, int dir)
 	if (ny < 0 || nx < 0 || ny >= g->board_h || nx >= g->board_w)
 		return ;
 	if (g->board[ny][nx] == WALL
-	|| (g->board[ny][nx] == EXIT && g->collectible_cnt != 0))
+	|| (g->board[ny][nx] == EXIT && g->collectible.count != 0))
 		return ;
 	if (g->board[ny][nx] == EXIT)
 		exit_so_long(g, NULL);
 	if (g->board[ny][nx] == COLLECTIBLE)
-		g->collectible_cnt--;
-	g->move_cnt++;
-	if (g->move_cnt == MAX_MOVE_COUNT)
+		g->collectible.count--;
+	g->move_count++;
+	if (g->move_count == MAX_MOVE_COUNT)
 		exit_so_long(g, MOVE_COUNT_OVER);
-	printf("move count [%d/%d]\n", g->move_cnt, MAX_MOVE_COUNT);
+	printf("move count [%d/%d]\n", g->move_count, MAX_MOVE_COUNT);
 	g->board[g->y][g->x] = EMPTY;
 	g->board[ny][nx] = PLAYER;
 	g->y = ny;
